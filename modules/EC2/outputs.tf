@@ -15,3 +15,11 @@ output "ec2_public_eips" {
     for key, eip in aws_eip.eip : key => eip.public_ip
   }
 }
+
+output "instance_ids" {
+  value = { for k, inst in aws_instance.ec2 : k => inst.id }
+}
+
+output "instance_security_group_ids" {
+  value = { for key, sg in aws_security_group.ec2_sg : key => sg.id }
+}

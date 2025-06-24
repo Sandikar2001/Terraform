@@ -68,7 +68,8 @@ variable "ec2_instance_base" {
     tags          = map(string)
     subnet_group  = string
     subnet_key    = string
-    assign_eip    = optional(bool, false)  
+    assign_eip    = optional(bool, false) 
+    attach_to_alb = optional(bool, false) 
   }))
 }
 
@@ -77,4 +78,8 @@ variable "ec2_instance_base" {
 variable "region" {
   description = "AWS region"
   type        = string
+}
+
+variable "alb_instance_name" {
+  type = string
 }

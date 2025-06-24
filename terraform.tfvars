@@ -67,7 +67,8 @@ ec2_instance_base = {
     key_name      = "test2"
     tags          = { terraform = "app1" }
     subnet_group  = "app"    # 👈 Needed!
-    subnet_key    = "1"      # 👈 Needed!
+    subnet_key    = "1"
+    attach_to_alb = true      # 👈 Needed!
   }
 
   "jump" = {
@@ -80,3 +81,7 @@ ec2_instance_base = {
     assign_eip    = true
   }
 }
+
+alb_instance_name = "web1"
+
+

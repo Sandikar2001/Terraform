@@ -16,6 +16,19 @@ resource "aws_security_group" "ec2_sg" {
     }
   }
 
+  # Ingress rule from ALB only if attach_to_alb = true
+  dynamic "ingress" {
+    for_each = each.value.attach_to_alb == true ? [1] : []
+    content {
+      from_port       = 80
+      to_port         = 80
+      protocol        = "tcp"
+      security_groups = [var.source_alb_sg_id]
+      description     = "Allow traffic from ALB"
+    }
+  }
+
+  # Egress rules
   dynamic "egress" {
     for_each = var.sg_egress
     content {

@@ -16,6 +16,7 @@ variable "ec2_instances" {
     key_name      = string
     tags          = map(string)
     assign_eip    = optional(bool, false)
+    attach_to_alb = optional(bool, false)
   }))
 }
 
@@ -77,6 +78,12 @@ variable "vpc_id" {
 variable "public_subnet_ids" {
   type = map(string)
   description = "Value from vpc module"
+}
+
+variable "source_alb_sg_id" {
+  description = "The ID of the ALB Security Group to allow traffic from."
+  type        = string
+  default     = null
 }
 
 
