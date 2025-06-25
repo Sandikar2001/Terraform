@@ -1,7 +1,7 @@
 resource "aws_security_group" "ec2_sg" {
   for_each = var.ec2_instances
 
-  name        = "${aws_project}-${each.key}-SG"
+  name        = "${var.aws_project}-${each.key}-SG"
   description = "Security group for ${each.key}"
   vpc_id      = var.vpc_id
 

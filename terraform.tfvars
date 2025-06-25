@@ -66,9 +66,9 @@ ec2_instance_base = {
     instance_type = "t3.micro"
     key_name      = "test2"
     tags          = { terraform = "app1" }
-    subnet_group  = "app"    # 👈 Needed!
+    subnet_group  = "app"    
     subnet_key    = "1"
-    attach_to_alb = true      # 👈 Needed!
+    attach_to_alb = true      
   }
 
   "jump" = {
