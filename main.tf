@@ -24,8 +24,8 @@ module "ec2" {
         inst.subnet_group == "db" ? module.vpc.db_subnet_ids[inst.subnet_key] :
         null
       )
-      tags = inst.tags
-      assign_eip  = inst.assign_eip
+      tags       = inst.tags
+      assign_eip = inst.assign_eip
     }
   }
   sg_egress         = var.sg_egress

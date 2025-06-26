@@ -1,11 +1,11 @@
 variable "aws_project" {
   description = "The Name of the project"
-  type = string
+  type        = string
 }
 
 variable "environment" {
   description = "Environment Name"
-  type = string
+  type        = string
 }
 
 variable "vpc_cidr" {
@@ -14,17 +14,17 @@ variable "vpc_cidr" {
 
 variable "public_subnet_cidr" {
   description = "Values for Public Subnet creation"
-  type = map(object( {
+  type = map(object({
     cidr = string
-    az = string
+    az   = string
   }))
 }
 
 variable "app_subnet_cidr" {
   description = "Values for App Subnet creation"
-  type = map(object( {
+  type = map(object({
     cidr = string
-    az = string
+    az   = string
   }))
 }
 
@@ -32,31 +32,31 @@ variable "db_subnet_cidr" {
   description = "Values for Db subnets creation"
   type = map(object({
     cidr = string
-    az = string 
+    az   = string
   }))
 }
 
 
 variable "sg_ingress" {
-type = map(object(
-{
-description = string
-port = number
-protocol = string
-cidr_blocks = list(string)
-}
-))
+  type = map(object(
+    {
+      description = string
+      port        = number
+      protocol    = string
+      cidr_blocks = list(string)
+    }
+  ))
 }
 
 variable "sg_egress" {
-type = map(object(
-{
-description = string
-port = number
-protocol = string
-cidr_blocks = list(string)
-}
-))
+  type = map(object(
+    {
+      description = string
+      port        = number
+      protocol    = string
+      cidr_blocks = list(string)
+    }
+  ))
 }
 
 
@@ -68,8 +68,8 @@ variable "ec2_instance_base" {
     tags          = map(string)
     subnet_group  = string
     subnet_key    = string
-    assign_eip    = optional(bool, false) 
-    attach_to_alb = optional(bool, false) 
+    assign_eip    = optional(bool, false)
+    attach_to_alb = optional(bool, false)
   }))
 }
 

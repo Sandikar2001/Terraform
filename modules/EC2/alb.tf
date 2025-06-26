@@ -10,7 +10,8 @@ resource "aws_lb" "main" {
 
 resource "aws_lb_target_group" "main" {
   for_each = {
-    for key, inst in var.ec2_instances : key => inst if inst.attach_to_alb == true
+    for key, inst in var.ec2_instances : key => inst 
+    if inst.attach_to_alb == true
   }
   name     = "${var.aws_project}-${var.env}-${each.key}-tg"
   port     = 80

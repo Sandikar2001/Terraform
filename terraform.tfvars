@@ -1,38 +1,38 @@
 aws_project = "Terraform"
 environment = "Test"
-vpc_cidr = "172.10.0.0/16"
-region = "ap-south-2"
+vpc_cidr    = "172.10.0.0/16"
+region      = "ap-south-2"
 
 public_subnet_cidr = {
   "1" = {
     cidr = "172.10.1.0/25"
-    az = "ap-south-2a"
+    az   = "ap-south-2a"
   }
   "2" = {
     cidr = "172.10.1.128/25"
-    az = "ap-south-2b"
-  } 
+    az   = "ap-south-2b"
+  }
 }
 
 db_subnet_cidr = {
   "1" = {
     cidr = "172.10.2.0/25"
-    az = "ap-south-2a"
+    az   = "ap-south-2a"
   }
   "2" = {
     cidr = "172.10.2.128/25"
-    az = "ap-south-2b"
+    az   = "ap-south-2b"
   }
 }
 
 app_subnet_cidr = {
   "1" = {
     cidr = "172.10.3.0/25"
-    az = "ap-south-2a"
+    az   = "ap-south-2a"
   }
   "2" = {
     cidr = "172.10.3.128/25"
-    az = "ap-south-2b"
+    az   = "ap-south-2b"
   }
 }
 
@@ -66,9 +66,9 @@ ec2_instance_base = {
     instance_type = "t3.micro"
     key_name      = "test2"
     tags          = { terraform = "app1" }
-    subnet_group  = "app"    
+    subnet_group  = "app"
     subnet_key    = "1"
-    attach_to_alb = true      
+    attach_to_alb = true
   }
 
   "jump" = {
