@@ -99,4 +99,3 @@ variable "rds_password" {
   }
 variable "rds_storage" { type = number }
 variable "rds_multi_az" { type = bool }
-variable "rds_engine" { type = string }

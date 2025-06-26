@@ -21,10 +21,6 @@ variable "multi_az" {
   type = bool
 }
 
-locals {
-  rds_name = "${aws_project}-${env}-${db_name}"
-}
-
 variable "db_subnets" {
   type = list(string)
 }

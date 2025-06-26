@@ -1,3 +1,0 @@
-output "DEBUG_EC2_INSTANCES_VARIABLE" {
-  value = module.ec2.DEBUG_EC2_INSTANCES_VARIABLE
-}

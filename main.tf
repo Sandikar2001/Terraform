@@ -8,25 +8,28 @@ module "vpc" {
   db_subnet_cidr     = var.db_subnet_cidr
 }
 
-module "ec2" {
-  source      = "./modules/EC2"
-  aws_project = var.aws_project
-  env         = var.environment
-  ec2_instances = {
+locals {
+  processed_instances = {
     for name, inst in var.ec2_instance_base :
     name => merge(
-      inst, 
+      inst,
       {
         subnet_id = (
           inst.subnet_group == "public" ? module.vpc.public_subnet_ids[inst.subnet_key] :
           inst.subnet_group == "app"    ? module.vpc.app_subnet_ids[inst.subnet_key] :
-          inst.subnet_group == "db"     ? module.vpc.db_subnet_ids[inst.subnet_key] :
           null
         )
       }
     )
   }
-  
+}
+
+
+module "ec2" {
+  source      = "./modules/EC2"
+  aws_project = var.aws_project
+  env         = var.environment
+  ec2_instances = local.processed_instances
   sg_egress         = var.sg_egress
   sg_ingress        = var.sg_ingress
   vpc_id            = module.vpc.vpc_id
@@ -56,7 +59,7 @@ module "rds" {
 
  locals {
   instances_requiring_db_access = {
-    for name, inst in module.ec2.ec2_instances : name => inst
+    for name, inst in local.processed_instances : name => inst
     if try(inst.connect_to_rds, false) == true
   }
 }
