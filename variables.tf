@@ -70,6 +70,7 @@ variable "ec2_instance_base" {
     subnet_key    = string
     assign_eip    = optional(bool, false)
     attach_to_alb = optional(bool, false)
+    connect_to_rds = optional(bool, false)
   }))
 }
 
@@ -83,3 +84,19 @@ variable "region" {
 variable "alb_instance_name" {
   type = string
 }
+
+
+
+#RDS VARIABLES
+
+variable "rds_instance_class" { type = string}
+variable "rds_engine" { type = string }
+variable "rds_engine_version" { type = string }
+variable "rds_user" { type = string }
+variable "rds_password" { 
+  type = string 
+  sensitive = true
+  }
+variable "rds_storage" { type = number }
+variable "rds_multi_az" { type = bool }
+variable "rds_engine" { type = string }

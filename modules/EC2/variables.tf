@@ -17,6 +17,7 @@ variable "ec2_instances" {
     tags          = map(string)
     assign_eip    = optional(bool, false)
     attach_to_alb = optional(bool, false)
+    connect_to_rds =  optional(bool, false)
   }))
 }
 

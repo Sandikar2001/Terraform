@@ -24,7 +24,4 @@ output "instance_security_group_ids" {
   value = { for key, sg in aws_security_group.ec2_sg : key => sg.id }
 }
 
-output "DEBUG_EC2_INSTANCES_VARIABLE" {
-  description = "DEBUG: Shows the value of the ec2_instances variable as seen by the module."
-  value       = var.ec2_instances
-}
+
