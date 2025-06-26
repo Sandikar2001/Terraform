@@ -69,6 +69,7 @@ ec2_instance_base = {
     subnet_group  = "app"
     subnet_key    = "1"
     attach_to_alb = true
+    connect_to_db = true  
   }
 
   "jump" = {
@@ -84,4 +85,13 @@ ec2_instance_base = {
 
 alb_instance_name = "web1"
 
+
+#RDS VAR VALUES
+rds_engine = "mysql"
+rds_engine_version = "8.0"
+rds_multi_az = false
+rds_instance_class = "db.m7g.large"
+rds_storage = 100
+rds_password = "admin123"
+rds_user = "admin"
 
