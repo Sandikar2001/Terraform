@@ -76,7 +76,7 @@ variable "vpc_id" {
 }
 
 variable "public_subnet_ids" {
-  type = list
+  type = list(string)
   description = "Value from vpc module"
 }
 
