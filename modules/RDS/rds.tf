@@ -11,5 +11,5 @@ resource "aws_db_instance" "rds-db" {
   multi_az             = var.multi_az
   db_subnet_group_name = aws_db_subnet_group.rds_db_sng
   storage_encrypted    = true
-
+  vpc_security_group_ids = [aws_security_group.rds.id]
 }
