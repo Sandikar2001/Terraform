@@ -9,7 +9,7 @@ resource "aws_db_instance" "rds-db" {
   publicly_accessible  = false
   skip_final_snapshot  = true
   multi_az             = var.multi_az
-  db_subnet_group_name = aws_db_subnet_group.rds_db_sng
+  db_subnet_group_name = aws_db_subnet_group.rds_db_sng.name
   storage_encrypted    = true
   vpc_security_group_ids = [aws_security_group.rds.id]
 }
