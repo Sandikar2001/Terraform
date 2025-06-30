@@ -69,7 +69,7 @@ ec2_instance_base = {
     subnet_group  = "app"
     subnet_key    = "1"
     attach_to_alb = true
-    connect_to_db = true  
+    connect_to_rds = true  
   }
 
   "jump" = {
