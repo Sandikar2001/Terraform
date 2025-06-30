@@ -80,6 +80,7 @@ ec2_instance_base = {
     subnet_group  = "public"
     subnet_key    = "1"
     assign_eip    = true
+    associate_public_ip_address = true
   }
 }
 
