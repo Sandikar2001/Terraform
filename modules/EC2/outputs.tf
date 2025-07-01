@@ -24,8 +24,5 @@ output "instance_security_group_ids" {
   value = { for key, sg in aws_security_group.ec2_sg : key => sg.id }
 }
 
-output "alb dns" {
-  value = aws_lb.main.dns_name
-}
 
 
