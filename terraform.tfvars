@@ -95,4 +95,5 @@ rds_instance_class = "db.m7g.large"
 rds_storage = 100
 rds_password = "admin123"
 rds_user = "admin"
+rds_db_name = "testdb"
 

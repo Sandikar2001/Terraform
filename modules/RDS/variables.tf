@@ -21,6 +21,10 @@ variable "multi_az" {
   type = bool
 }
 
+variable "db_name" {
+  type = string
+}
+
 variable "db_subnets" {
   type = list(string)
 }

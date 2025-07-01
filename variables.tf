@@ -12,6 +12,10 @@ variable "vpc_cidr" {
   description = "Specify VPC CIDR range"
 }
 
+variable "rds_db_name" {
+  type = string 
+}
+
 variable "public_subnet_cidr" {
   description = "Values for Public Subnet creation"
   type = map(object({

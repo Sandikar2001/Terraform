@@ -1,6 +1,7 @@
 resource "aws_db_instance" "rds-db" {
   allocated_storage    = var.storage
-  db_name              = "${var.aws_project}-${var.env}-rds"
+  identifier           = lower("${var.aws_project}-${var.env}-rds")
+  db_name              = var.db_name
   engine               = var.engine
   engine_version       = var.engine_version
   instance_class       = var.instance_class

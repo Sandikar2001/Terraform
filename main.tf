@@ -44,6 +44,7 @@ module "rds" {
   vpc_id = module.vpc.vpc_id
   db_subnets = values(module.vpc.db_subnet_ids)
   aws_project = var.aws_project
+  db_name = var.rds_db_name
   env = var.environment
   instance_class = var.rds_instance_class
   engine = var.rds_engine
