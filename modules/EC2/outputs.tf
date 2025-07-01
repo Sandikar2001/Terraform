@@ -24,5 +24,12 @@ output "instance_security_group_ids" {
   value = { for key, sg in aws_security_group.ec2_sg : key => sg.id }
 }
 
+output "alb_dns_names" {
+  description = "A map of instance names to the DNS names of their associated ALBs."
+  value = {
+    for key, lb in aws_lb.main : key => lb.dns_name
+  }
+}
+
 
 
