@@ -103,3 +103,19 @@ variable "rds_password" {
   }
 variable "rds_storage" { type = number }
 variable "rds_multi_az" { type = bool }
+
+
+#WAF VARIABLES
+
+variable "waf_rules" {
+  description = "A list of rule objects to apply to the Web ACL."
+  type = list(object({
+    name     = string
+    priority = number
+    managed_rule_group = object({
+      vendor_name = string
+      name        = string
+    })
+  }))
+  default = [] # Providing a default is good practice.
+}

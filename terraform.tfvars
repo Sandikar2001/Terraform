@@ -97,3 +97,23 @@ rds_password = "admin123"
 rds_user = "admin"
 rds_db_name = "testdb"
 
+#WAF RULES
+
+waf_rules = [
+  {
+    name     = "AWSManagedRulesCommonRuleSet"
+    priority = 10
+    managed_rule_group = {
+      vendor_name = "AWS"
+      name        = "AWSManagedRulesCommonRuleSet"
+    }
+  },
+  {
+    name     = "AWSManagedRulesAmazonIpReputationList"
+    priority = 20
+    managed_rule_group = {
+      vendor_name = "AWS"
+      name        = "AWSManagedRulesAmazonIpReputationList"
+    }
+  }
+]

@@ -31,5 +31,12 @@ output "alb_dns_names" {
   }
 }
 
+output "alb_arns"{
+  value = {
+    for key, lb in aws_lb.main : key => lb.arn
+  }
+}
+
+
 
 

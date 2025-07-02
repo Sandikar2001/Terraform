@@ -88,3 +88,11 @@ resource "aws_security_group_rule" "allow_db_from_app" {
   source_security_group_id = module.ec2.instance_security_group_ids[each.key]
   description              = "Allow RDS to receive connections from instance ${each.key}"
 }
+
+module "waf" {
+  source = "./modules/WAF"
+  environment = var.environment
+  aws_project = var.aws_project
+  rules = var.waf_rules
+  resource_arns_to_associate = values(module.ec2.alb_arns)
+}
