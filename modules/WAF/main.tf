@@ -46,7 +46,7 @@ resource "aws_wafv2_web_acl" "main" {
 
 resource "aws_wafv2_web_acl_association" "main" {
   # Change from count to for_each to loop over the list of ARNs
-  for_each = toset(var.resource_arns_to_associate)
+  for_each = var.resource_arns_to_associate
 
   resource_arn = each.value # 'each.value' will be one ARN from the list
   web_acl_arn  = aws_wafv2_web_acl.main.arn
