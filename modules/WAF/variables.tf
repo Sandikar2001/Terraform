@@ -25,6 +25,5 @@ variable "rules" {
 
 variable "resource_arns_to_associate" { 
   description = "A list of resource ARNs (e.g., ALBs) to associate this Web ACL with."
-  type        = list(string)
-  default     = [] 
+  type        = map(string) 
 }

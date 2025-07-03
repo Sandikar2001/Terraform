@@ -94,5 +94,5 @@ module "waf" {
   environment = var.environment
   aws_project = var.aws_project
   rules = var.waf_rules
-  resource_arns_to_associate = values(module.ec2.alb_arns)
+  resource_arns_to_associate = module.ec2.alb_arns
 }
