@@ -34,9 +34,10 @@ module "ec2" {
   sg_ingress        = var.sg_ingress
   vpc_id            = module.vpc.vpc_id
   public_subnet_ids = values(module.vpc.public_subnet_ids)
-
+  alb_target_port = var.alb_target_port
   depends_on = [module.vpc]
 }
+
 
 
 module "rds" {
