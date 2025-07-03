@@ -19,6 +19,16 @@ resource "aws_lb_target_group" "main" {
   vpc_id   = var.vpc_id
 }
 
+resource "aws_lb_target_group_attachment" "main" {
+  for_each = {
+    for key, inst in var.ec2_instances : key => inst
+    if try(inst.attach_to_alb, false) == true
+  }
+  target_group_arn = aws_lb_target_group.main[each.key].arn
+  target_id        = aws_instance.ec2[each.key].id
+  port             = var.target_port
+}
+
 # Create one Listener for each ALB.
 resource "aws_lb_listener" "main" {
   for_each = {
