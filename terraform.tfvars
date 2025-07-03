@@ -70,6 +70,17 @@ ec2_instance_base = {
     subnet_key    = "1"
     attach_to_alb = true
     connect_to_rds = true  
+    ebs_block_devices = {
+      "/dev/sdf" = { # The device name is the key
+        volume_size = 50
+        volume_type = "gp3"
+        tags        = { "Purpose" = "Application Data" }
+      }
+    }
+    root_block_device = {
+      volume_size = 20  # In GB. Default is usually 8GB.
+      volume_type = "gp3"
+    }
   }
 
   "jump" = {
@@ -81,6 +92,7 @@ ec2_instance_base = {
     subnet_key    = "1"
     assign_eip    = true
     associate_public_ip_address = true
+
   }
 }
 
