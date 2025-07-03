@@ -26,7 +26,7 @@ resource "aws_lb_target_group_attachment" "main" {
   }
   target_group_arn = aws_lb_target_group.main[each.key].arn
   target_id        = aws_instance.ec2[each.key].id
-  port             = var.target_port
+  port             = var.alb_target_port
 }
 
 # Create one Listener for each ALB.
