@@ -78,6 +78,9 @@ variable "ec2_instance_base" {
   }))
 }
 
+variable "alb_target_port" {
+  type = number
+}
 
 
 variable "region" {
