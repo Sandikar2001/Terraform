@@ -87,6 +87,10 @@ variable "source_alb_sg_id" {
   default     = null
 }
 
+variable "alb_target_port" {
+  type = number
+}
+
 
 
 
