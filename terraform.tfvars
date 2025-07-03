@@ -84,6 +84,8 @@ ec2_instance_base = {
   }
 }
 
+alb_target_port = 80
+
 alb_instance_name = "web1"
 
 
