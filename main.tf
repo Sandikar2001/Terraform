@@ -12,7 +12,11 @@ locals {
   processed_instances = {
     for name, inst in var.ec2_instance_base :
     name => merge(
-      inst,
+      # 1. Takes the ENTIRE original 'inst' object from your tfvars file.
+      # This includes root_block_device, ebs_block_devices, and everything else.
+      inst, 
+      
+      # 2. Combines it with a new map containing the calculated subnet_id.
       {
         subnet_id = (
           inst.subnet_group == "public" ? module.vpc.public_subnet_ids[inst.subnet_key] :
